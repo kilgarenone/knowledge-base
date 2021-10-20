@@ -1,9 +1,0 @@
-This error happens when I tried to store my passphase to key chain to skip having to enter it everytime I ssh in my VPS.
-
-1. 
-```
-eval `ssh-agent -s`
-```
-2. `ssh-add -k ~/.ssh/id_rsa`
-3. Enter your passphase.
-4. Now ssh again, and it won't ask for it anymore.
