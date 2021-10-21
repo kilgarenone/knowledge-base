@@ -14,7 +14,7 @@ Utilize Linode's nameservers in your domain hosting provider like Namecheap:
 
 ## Step 2 - https://www.linode.com/docs/guides/getting-started/
 
-## Step 2.1 - Them `Hosts` file and `hostname`
+## Step 2.1 - `Hosts` file and `hostname`
 
 `sudo nano /etc/hosts`
 then add this two lines - IPV4 and IPV6 each
