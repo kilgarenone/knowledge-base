@@ -1,5 +1,7 @@
 Store ssh passphase to skip having to enter it everytime I ssh to my VPS.
 
+Note: this only works in a single session. Or something. I don't freaking know anymore. If you really hate entering passphase, might as well just get rid of it: `ssh-keygen -p`.
+
 1.  Add following at the end of your ~/.bashrc or ~/.zshrc:
 
 ```

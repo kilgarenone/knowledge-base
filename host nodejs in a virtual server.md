@@ -65,14 +65,26 @@ https://www.linode.com/docs/guides/how-to-install-nodejs-and-nginx-on-ubuntu-18-
 ### /etc/nginx/sites-available/api.sampurr.com
 
 ```
+# Rate limiting - only allow 1 request every 100ms(10 requests/second)
+# $binary_remote_addr is user ip address in binary. More efficient than alternatives.
+# https://www.nginx.com/blog/rate-limiting-nginx/
+limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10r/s;
+
 server {
 
     server_name api.sampurr.com;
     root        /var/www/api.sampurr.com;
     index       index.html;
 
+    # tuning nginx https://www.nginx.com/blog/tuning-nginx/
+    access_log  off;
+    sendfile    on;
+
     location / {
+        limit_req zone=mylimit;
+
         proxy_pass http://localhost:4000;
+        proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
