@@ -33,12 +33,14 @@ Note,
 
 ## Step 4 - Firewall stuff
 
-Use `ufw`. Forget about 'Linode Cloud Firewall'.
+- Use `ufw`
+- Forget about 'Linode Cloud Firewall'.
+- Disable password authentication in ssh config as suggested (it's mad world out there, oh my sweet sweet innocent child)
 
-- `sudo ufw allow OpenSSH`
-- `sudo ufw allow 'Nginx Full'` - Enable both HTTP and HTTPS
-- `sudo ufw enable`. Type `y`. `ENTER`.
-- `sudo ufw status`:
+1. `sudo ufw allow OpenSSH`
+2. `sudo ufw allow 'Nginx Full'` - Enable both HTTP and HTTPS
+3. `sudo ufw enable`. Type `y`. `ENTER`.
+4. `sudo ufw status`:
 
 ```
 To                         Action      From
@@ -146,3 +148,24 @@ You should see 'Hello world!'.
 Now hit your domain in your browser 'http://api.sampurr.com'.
 
 You should be greeted with 'Hello world!' as well. Nice.
+
+## Step 7 - pm2
+
+1. Generate a config file `pm2 init simple`
+2. Note, if you do `type: "module"` in your `package.json`, name this file with `.cjs` extension.
+
+```javascript
+// ecosystem.config.cjs
+module.exports = {
+  apps: [
+    {
+      name: "sampurr",
+      script: "./server.js",
+      exec_mode: "cluster",
+    },
+  ],
+};
+```
+
+3. `pm2 start ecosystem.config.js`
+4.
