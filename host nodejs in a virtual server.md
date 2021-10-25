@@ -161,11 +161,16 @@ module.exports = {
     {
       name: "sampurr",
       script: "./server.js",
-      exec_mode: "cluster",
+      instances: "max", // detect the number of available CPUs and run as many processes as possible
+      exec_mode: "cluster", // so PM2 know you want to load balance between each instances
+      max_memory_restart: "170M", // prevent memory leaks(?)
+      merge_logs: true, // all instances of a clustered process logs into the same file when in cluster mode
+      time: true, // prefix timestamp to log
+      log_date_format: "YYYY-MM-DD HH:mm Z", // format of the logs' timestamp
     },
   ],
 };
 ```
 
 3. `pm2 start ecosystem.config.js`
-4.
+4. [GUIDE](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-20-04#step-3-%E2%80%94-installing-pm2)
