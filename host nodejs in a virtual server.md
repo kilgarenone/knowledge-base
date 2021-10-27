@@ -173,4 +173,4 @@ module.exports = {
 ```
 
 3. `pm2 start ecosystem.config.js`
-4. [GUIDE](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-20-04#step-3-%E2%80%94-installing-pm2)
+4. Fill in gaps with this [GUIDE](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-20-04#step-3-%E2%80%94-installing-pm2)
