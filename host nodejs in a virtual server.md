@@ -66,6 +66,11 @@ https://www.linode.com/docs/guides/how-to-install-nodejs-and-nginx-on-ubuntu-18-
 
 ### /etc/nginx/sites-available/api.sampurr.com
 
+Also talks about:
+
+- **CORS** ([Guide](https://enable-cors.org/server_nginx.html)). Avoid the `cors` npm package in Nodejs if possible.
+- Rate limiting
+
 ```
 # Rate limiting - only allow 1 request every 100ms(10 requests/second)
 # $binary_remote_addr is user ip address in binary. More efficient than alternatives.
@@ -83,11 +88,22 @@ server {
     sendfile    on;
 
     location / {
+        # CORS
+        if ($request_method = 'GET') {
+          add_header 'Access-Control-Allow-Origin' 'https://www.sampurr.com' always;
+          add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
+          add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
+          add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range' always;
+        }
+
         limit_req zone=mylimit;
 
         proxy_pass http://localhost:4000;
         proxy_http_version 1.1;
-        proxy_set_header Connection '';
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
     }
 
     add_header X-Content-Type-Options nosniff;
@@ -105,7 +121,7 @@ server {
 
 ### Nginx master config
 
-Including how to do `gZip`.
+Including how to do **GZip**.
 
 ```
 user www-data;

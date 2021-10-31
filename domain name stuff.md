@@ -22,7 +22,7 @@ You are hosting your static sites/SPA in Netlify.
 - `www.sampurr.com` as your **primary** domain.
 - Netlify will automatically create 'apex' domain - `sampurr.com` - for you.
 
-7. At this point, Netlify should take care the rest - 'HTTPS', CDN etc.
+7. At this point, Netlify should take care the rest - 'HTTPS' cert, CDN etc.
 
 ### Guides
 
