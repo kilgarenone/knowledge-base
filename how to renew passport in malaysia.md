@@ -23,4 +23,4 @@ don't die on your way to the immigration office from which you got your old pass
 
 ---
 
-_note to self: for the love of satan, when you gonna fucking make some personal sacrifice and work in government sector and stop making corporation and elites even richer, you fucking piece of shit?_
+_note to self: for the love of satan, when you gonna fucking make some personal sacrifice and work in government sector and stop making corporation and elites even richer, you fucking piece of shit? otherwise, stop your fucking whining_
