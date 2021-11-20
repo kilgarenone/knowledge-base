@@ -6,7 +6,7 @@ i hear you still gotta let them take your picture on the spot - renew online jus
 ### step-1
 
 appointment la bodo
-https://imigresen-online.imi.gov.my/eservices/myPasport
+[http://sto.imi.gov.my/e-temujanji/](http://sto.imi.gov.my/e-temujanji/)
 
 ### step-2
 
